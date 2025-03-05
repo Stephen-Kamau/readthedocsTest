@@ -1,3 +1,8 @@
+import os
+import sys
+sys.path.insert(0, os.path.abspath('../../'))
+
+
 project = 'DIVA'
 copyright = '2025, p33'
 author = 'Project 33'
