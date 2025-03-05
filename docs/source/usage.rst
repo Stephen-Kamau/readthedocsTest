@@ -6,29 +6,38 @@ Usage
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use Fakemail, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   (.venv) $ pip install fakemail
 
-Creating recipes
-----------------
+Creating Fake Emails
+--------------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+To retrieve a list of random email addresses, you can use the ``fakemail.get_random_emails(domain="test.com")`` function:
 
-.. autofunction:: lumache.get_random_ingredients
+.. autofunction:: fakemail.get_random_emails
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
-
-.. autoexception:: lumache.InvalidKindError
+The ``domain`` parameter is an optional string. If not provided, it will default to ``"example.com"``. You can specify a custom domain like ``"p33.com"`` for your generated emails.
 
 For example:
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+>>> from fakemail import get_random_emails
+>>> get_random_emails("test.com")
+['alice34@test.com', 'bob21@test.com', 'charlie56@test.com', 'dave11@test.com', 'eve99@test.com']
 
+Handling Invalid Domains
+-------------------------
+
+If you provide an invalid domain, the function will raise an exception.
+
+.. autoexception:: fakemail.InvalidDomainError
+
+For example:
+
+>>> from fakemail import get_random_emails
+>>> get_random_emails(123)
+Traceback (most recent call last):
+    ...
+fakemail.InvalidDomainError: The domain must be a string.

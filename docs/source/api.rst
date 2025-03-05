@@ -4,4 +4,5 @@ API
 .. autosummary::
    :toctree: generated
 
-   lumache
+   fakemail.get_random_emails
+   fakemail.InvalidDomainError
