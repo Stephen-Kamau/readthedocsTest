@@ -18,6 +18,11 @@ extensions = [
     'sphinx.ext.intersphinx',
 ]
 
+# add README content
+with open('../../README.rst') as f:
+    readme = f.read()
+
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
